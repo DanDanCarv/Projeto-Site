@@ -1,0 +1,221 @@
+/*---Estilo Geral---*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lexend", sans-serif;
+      
+}
+
+body{
+    background-color: rgb(255, 255, 255) ;
+    height: 100vh;
+
+}
+
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+
+}
+
+.flex{
+    display: flex;
+}
+
+/*----Cabeçario----*/
+header{
+    padding: 40px 4%;
+}
+
+header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a{
+    color:rgb(107, 107, 107) ;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+}
+
+header a:hover{
+    color: black;
+    transform: scale(1.05);
+}
+
+header nav ul{
+    list-style-type: none;
+}
+
+header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+}
+
+/* Estilo do Topo do Site */
+section.topo-do-site{
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.topo-do-site h1{
+    font-size: 34px;
+    line-height: 35px;
+}
+
+.topo-do-site .txt-topo-site p{
+    margin: 35px 0;
+    
+}
+
+.topo-do-site .img-topo-site img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes flutuar{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+}
+
+/* Time CPS */
+
+section.sobre{
+    padding: 40px 4;
+
+}
+
+section.sobre .flex{
+    align-items: center;
+    gap: 60px;
+
+}
+
+.sobre .txt-sobre h2{
+    font-size: 35px;
+    line-height: 35px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span{
+    color: brown;
+    display: block;
+
+}
+
+.sobre .txt-sobre p{
+    margin: 20px 0;
+    text-align: justify;
+}
+
+/* Suporte CPS */
+
+section.Suporte-CPS{
+    padding: 80px 4px;
+    margin-top: 60px;
+
+}
+
+section.Suporte-CPS .flex{
+    align-items: center;
+    gap: 60px;
+
+}
+
+.Suporte-CPS .txt-Suporte h2{
+    color: brown;
+    font-size: 35px;
+    line-height: 35px;
+    margin-bottom: 30px;
+}
+
+
+.Suporte-CPS .txt-Suporte p{
+    margin: 20px 0;
+    
+} 
+
+
+.Suporte-CPS .img-Suporte img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+
+@keyframes flutuar{
+    0%{
+        top: 0;
+    }
+    100%{
+        top: 30px;
+    }
+}
+}
+
+/* Votação Trimestral */
+
+section .votação-cps{
+    padding: 80px 4px;
+    margin-top: 100px;
+
+}
+
+.votação-cps .txt-votação h2{
+    color: black;
+    font-size: 35px;
+    line-height: 35px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.votação-cps .txt-votação h2 span{
+    color: rgb(255, 184, 4);
+    font-size: 35px;
+    line-height: 35px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.highlight-p{
+
+    color: rgb(255, 184, 4);
+
+}
+
+
+.votação-cps .txt-votação p{
+    margin: 20px 0;
+    
+}  
+
+.btn-votar {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+.btn-votar button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color:rgb(255, 184, 4) ;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    
+}
+
+
