@@ -237,6 +237,26 @@ section.sobre .flex{
     align-items: center;
 }
 
+.video-bg {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    left: -50px;
+    top: 218px; 
+    
+}
+
+.video-bg video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 section.Suporte-CPS{
     padding: 80px 4px;
     margin-top: 60px;
@@ -250,10 +270,12 @@ section.Suporte-CPS .flex{
 }
 
 .Suporte-CPS .txt-Suporte h2{
-    color: brown;
-    font-size: 35px;
-    line-height: 35px;
-    margin-bottom: 30px;
+    padding: 30px 4;
+    margin-top: 15px;
+    color: #FF8C42 ;
+    display: block;
+    font-size: 60px;
+    font-family: 'Lexend', sans-serif
 }
 
 
