@@ -5,11 +5,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Lexend", sans-serif;
-      
+    p {
+        font-family: "Lexend", sans-serif;
+    }
 }
 
 body{
-    background-color: rgb(255, 255, 255) ;
+    background-color: #0F0F0F ;
+    color: #e0e0e0;
     height: 100vh;
 
 }
@@ -24,26 +27,48 @@ body{
     display: flex;
 }
 
+.Logo img {
+  width: 110px;   /* ajuste o valor */
+  height: auto;   /* mantém proporção */
+}
+
+
 /*----Cabeçario----*/
 header{
-    padding: 40px 4%;
+    padding: 25px 1%;
+    position: fixed;  
+    top: 0;           
+    left: 0;          
+    width: 100%;      
+    z-index: 1000;    
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    
+}
+
+header.scrolled {
+    background-color: #121212;
+    border-bottom: 1px solid #fff;
 }
 
 header > .interface{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 header a{
-    color:rgb(107, 107, 107) ;
+    color:rgb(255, 255, 255) ;
     text-decoration: none;
     display: inline-block;
     transition: .2s;
+    font-family: "Lexend", sans-serif;
 }
 
 header a:hover{
-    color: black;
+    color: rgb(18, 0, 34);
     transform: scale(1.05);
 }
 
@@ -59,6 +84,7 @@ header nav ul li{
 /* Estilo do Topo do Site */
 section.topo-do-site{
     padding: 40px 4%;
+    padding-top: 130px; 
 }
 
 section.topo-do-site .flex{
@@ -67,31 +93,86 @@ section.topo-do-site .flex{
     gap: 90px;
 }
 
-.topo-do-site h1{
-    font-size: 34px;
-    line-height: 35px;
+.topo-do-site {
+    background-image: url("../Imagens/Design sem nome (3).png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;    
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.interface {
+    max-width: 1200px;
+    margin-left: 0; 
+    margin-right: auto;
+    padding-left: 80px;
+}
+
+.txt-topo-site {
+    max-width: 520px;
+    width: 100%;
+    text-align: left;
+}
+
+.topo-do-site .txt-topo-site h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+.topo-do-site .txt-topo-site h1 span {
+    color: #FF8C42;
+    display: block;
 }
 
 .topo-do-site .txt-topo-site p{
+    max-width: 480px;
     margin: 35px 0;
+    line-height: 1.6;
     
 }
 
-.topo-do-site .img-topo-site img{
-    position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate;
-
+.Span{
+    color: #FF8C42;
+    max-width: 480px;
+    margin: 35px 0;
+    line-height: 1.6;
+    font-weight: 800;
+    
 }
 
-
-@keyframes flutuar{
-    0%{
-        top: 0;
-    }
-    100%{
-        top: 30px;
-    }
+.btn-Saiba-Mais {
+    max-width: 480px;
+    margin: 35px 0;
+    margin-top: 20px; 
 }
+
+.btn-Saiba-Mais button{
+    padding: 20px 50px;
+    font-size: 30px;
+    font-weight: 600;
+    background-color:#FF8C42 ;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    
+}
+
+.btn-Saiba-Mais:hover{
+    color: rgb(18, 0, 34);
+    transform: scale(1.05);
+}
+
 
 /* Time CPS */
 
@@ -174,9 +255,9 @@ section .votação-cps{
 }
 
 .votação-cps .txt-votação h2{
-    color: black;
+    color: rgb(231, 230, 230);
     font-size: 35px;
-    line-height: 35px;
+    line-height: 35px; 
     margin-bottom: 30px;
     text-align: center;
 }
