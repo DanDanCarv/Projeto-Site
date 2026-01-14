@@ -29,27 +29,26 @@ body{
 
 .Logo img {
   width: 110px;  
-  height: auto;  
+  height: auto;
+  margin-left: -70px;  
 }
 
 
 /*----Cabeçario----*/
 header{
-    padding: 25px 1%;
-    position: fixed;  
-    top: 0;           
-    left: 0;          
-    width: 100%;      
-    z-index: 1000;    
+    padding: 5px 1%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     background-color: transparent;
-    border-bottom: 1px solid transparent;
-    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    transition: background-color 0.3s ease;
     
 }
 
 header.scrolled {
-    background-color: #121212;
-    border-bottom: 1px solid #fff;
+    background-color: #8348fe;
 }
 
 header > .interface{
@@ -59,26 +58,63 @@ header > .interface{
     
 }
 
-header a{
-    color:rgb(255, 255, 255) ;
-    text-decoration: none;
-    display: inline-block;
-    transition: .2s;
-    font-family: "Lexend", sans-serif;
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-header a:hover{
-    color: rgb(18, 0, 34);
-    transform: scale(1.05);
-}
-
-header nav ul{
-    list-style-type: none;
-}
-
-header nav ul li{
+header nav ul li {
     display: inline-block;
     padding: 0 40px;
+}
+
+/* Links */
+header nav a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Lexend", sans-serif;
+    font-size: 16px;
+    padding-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+
+header nav a:hover {
+    color: #ccc;
+}
+
+header nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+
+header nav a.active {
+    color: #fff;
+}
+
+
+header nav a.active::after {
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    header nav ul li {
+        padding: 0 20px;
+    }
 }
 
 /* Estilo do Topo do Site */
@@ -225,132 +261,439 @@ section.sobre .flex{
   border-radius: 50%;  
   object-fit: cover;   
 }
-/* Suporte CPS */
+/* Projetos Daniel */
 
-.Suporte-CPS{
-    background-image: url("../Imagens/Design\ meio\ do\ site.png");
-    background-size: cover;
-    background-position: center;
+section.Projetos {
+    position: relative;
+    background-image: url("../Imagens/Design meio do site.png");
+    background-size: 1400px; /* não corta */
+    background-position: top center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+
+    min-height: 140vh;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+section.Projetos .interface {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+/* =======================
+   PROJETOS - STACK
+======================= */
+
+.cards {
     display: flex;
+    gap: 80px;
+    justify-content: center;
     align-items: center;
 }
 
-.video-bg {
+/* STACK */
+.stack {
     position: relative;
-    width: 100%;
-    max-width: 200px;
-    height: 200px;
-    overflow: hidden;
-    position: relative;
+    width: 260px;
+    height: 320px;
+    cursor: pointer;
+}
+
+.stack button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.3);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10%;
+    z-index: 10;
+}
+
+.stack .prev {
     left: -50px;
-    top: 218px; 
-    
+}
+
+.stack .next {
+    right: -50px;
+}
+
+.stack button:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.stack-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: center;
+}
+
+
+/* CARDS EMPILHADOS */
+.card-projeto {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ORDEM DO STACK */
+/* ORDEM DO STACK - DISTRIBUIÇÃO LATERAL */
+.card-projeto:nth-child(1) {
+    transform: translateX(-40px); /* à esquerda */
+    z-index: 2;
+    opacity: 0.85;
+}
+
+.card-projeto:nth-child(2) {
+    transform: translateX(0); /* centro */
+    z-index: 3;
+    opacity: 1;
+}
+
+.card-projeto:nth-child(3) {
+    transform: translateX(40px); /* à direita */
+    z-index: 2;
+    opacity: 0.85;
+}
+
+/* =======================
+   ANIMAÇÃO CARROSSEL
+======================= */
+
+/* delays para alternância */
+.stack .card-projeto:nth-child(1) {
+    animation-delay: 4s;
+}
+
+.stack .card-projeto:nth-child(2) {
+    animation-delay: 0s;
+}
+
+.stack .card-projeto:nth-child(3) {
+    animation-delay: 8s;
+}
+
+/* Card da esquerda */
+.card-projeto:nth-child(1) {
+    transform: translateX(-50px) scale(0.9);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+/* Card do centro */
+.card-projeto:nth-child(2) {
+    transform: translateX(0) scale(1.05);
+    z-index: 3;
+    opacity: 1;
+}
+
+/* Card da direita */
+.card-projeto:nth-child(3) {
+    transform: translateX(50px) scale(0.9);
+    z-index: 2;
+    opacity: 0.85;
+}
+
+/* =======================
+   MODAL / SUBABA
+======================= */
+
+.projeto-detalhe {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.projeto-detalhe.ativo {
+    display: flex;
+}
+
+.projeto-detalhe .conteudo {
+    background: #fff;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 16px;
+    position: relative;
+}
+
+.projeto-detalhe .fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.stack-title {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+    line-height: 1.1;
+    font-weight: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    text-align: center;
+}
+
+.stack-desc {
+    max-width: 520px;
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+    line-height: 1.1;
+    color: #3f0591; 
+    text-align: center;
+}
+
+
+
+.titulo-projetos {
+    text-align: center;
+    margin-bottom: 60px;
+    color: #FF8C42;
+    font-size: 60px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+}
+
+.icon-config {
+    color:#3f0591;
+    font-size: 50px;
+}
+
+section.Projetos .flex {
+    position: relative;
+}
+
+.video-bg {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    top: 424px;
+    left: -75px;
+    transform: scaleX(-1);
 }
 
 .video-bg video {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
-section.Suporte-CPS{
-    padding: 80px 4px;
-    margin-top: 60px;
-
-}
-
-section.Suporte-CPS .flex{
-    align-items: center;
-    gap: 60px;
-
-}
-
-.Suporte-CPS .txt-Suporte h2{
-    padding: 30px 4;
-    margin-top: 15px;
-    color: #FF8C42 ;
-    display: block;
-    font-size: 60px;
-    font-family: 'Lexend', sans-serif
-}
-
-
-.Suporte-CPS .txt-Suporte p{
-    margin: 20px 0;
-    
-} 
-
-
-.Suporte-CPS .img-Suporte img{
-    position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate;
-
-@keyframes flutuar{
-    0%{
-        top: 0;
-    }
-    100%{
-        top: 30px;
-    }
-}
-}
-
 /* Votação Trimestral */
 
 
-section .votação-cps{
-    padding: 80px 4px;
-    margin-top: 100px;
-
+.votação-cps {
+    padding: 130px 4% 40px 4%;
 }
 
-.votação-cps .txt-votação h2{
-    color: rgb(231, 230, 230);
-    font-size: 35px;
-    line-height: 35px; 
-    margin-bottom: 30px;
-    text-align: center;
+.votação-cps .interface {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.votação-cps .txt-votação h2 span{
-    color: rgb(255, 184, 4);
+.votação-cps .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;           /* permite quebra em telas menores */
+}
+
+.txt-votação {
+    max-width: 520px;
+}
+
+.txt-votação h2 {
     font-size: 35px;
-    line-height: 35px;
-    margin-bottom: 30px;
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+    color: #283930;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    text-align: left;
+}
+
+.txt-votação h2 .highlight-h2 {
+    color: #FF8C42;
+    font-weight: 600;
     display: block;
 }
 
-.highlight-p{
-
-    color: rgb(255, 184, 4);
-
+/* ------------------ LADO DIREITO ------------------ */
+.lado-direito {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
 }
-
-
-.votação-cps .txt-votação p{
-    margin: 20px 0;
-    
-}  
 
 .btn-votar {
     display: flex;
-    justify-content: center; 
-    margin-top: 20px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
-.btn-votar button{
-    padding: 10px 40px;
+.btn-votar button {
+    padding: 18px 48px;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #FF8C42;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Estrelas da média (fora do modal) */
+.media-estrela {
+    font-size: 60px;
+    color: #FF8C42;
+    letter-spacing: 4px;
+    margin: 20px 0;
+    margin-top: -50px;
+}
+
+.media-estrela span {
+    color: #ccc;
+}
+
+.media-estrela span.preenchida {
+    color: #FF8C42;
+}
+
+/* ------------------ MODAL / SUBABA ------------------ */
+.subaba-avaliacao {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.conteudo-avaliacao {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+}
+
+.fechar-subaba {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #777;
+}
+
+.estrelas {
+    margin: 25px 0 20px;
+    font-size: 0;
+}
+
+.estrelas span {
+    font-size: 52px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.15s;
+    margin: 0 4px;
+}
+
+.estrelas span.hover,
+.estrelas span.selecionada {
+    color: #FF8C42;
+}
+
+#feedback-text {
+    width: 100%;
+    height: 110px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: none;
+    font-size: 16px;
+    font-family: inherit;
+    margin-bottom: 15px;
+}
+
+#enviar-feedback {
+    padding: 14px 40px;
+    background: #FF8C42;
+    color: white;
+    border: none;
+    border-radius: 8px;
     font-size: 18px;
     font-weight: 600;
-    background-color:rgb(255, 184, 4) ;
-    border: 0;
-    border-radius: 30px;
     cursor: pointer;
+}
+
+#enviar-feedback:hover {
+    background: #fc6a10;
+}
+
+.media-ficticia {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Imagem final do site */
+section.imagem {
+    width: 100%;
+}
+
+.final-img {
+    width: 100%;
+    height: 427px;              /* 👈 altura fixa */
     
+    background-image: url("../Imagens/final do site.jpg");
+    background-size: cover;
+    background-position: top center; /* não corta em cima */
+    background-repeat: no-repeat;
 }
 
 
+/* Rede Social */
+section.Rede-Social {
+    width: 100%;
+}
+
+.ImgRede-Social {
+    width: 100%;
+    height: 427px;             
+    
+    background-image: url("../Imagens/Design\ meio\ do\ site.png");
+    background-size: cover;
+    background-position: top center; /* não corta em cima */
+    background-repeat: no-repeat;
+}
