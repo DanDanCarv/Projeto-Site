@@ -17,11 +17,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/Pagina-Inicial.css">
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <title>ProjetoStar</title>
 </head>
 <body>
     <header>
+
         <!--Logo-->
         <div class="interface">
         <div class="Logo">
@@ -31,7 +34,7 @@
         </div>
         <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="Interface.html" class="active">Home</a></li>
                     <li><a href="#">Suporte</a></li>
                     <li><a href="Votação.html">Votação</a></li>
                     <li><a href="#">Gráfico</a></li>
@@ -41,7 +44,19 @@
             </nav>
         </div>    
     </header>
+        <!--JS Cabeçario-->
+        <script>
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
 
+            if (window.scrollY > 0) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+        
+        </script>
     <Main>
         <section class="topo-do-site">
             <div class="interface">
@@ -77,49 +92,166 @@
                 </div> <!--flex-->
             </div> <!--Interface-->
         </section> <!--sobre-->
-
-        <section class="Suporte-CPS">
+        <!--Projetos-->
+        <section class="Projetos">
             <div class="interface">
-                <div class="flex">
-                    <div class="txt-Suporte">
-                        <h2>SUPORTE CPS</h2>
-                        <p>A opção Suporte CPS é uma melhoria de um processo que já realizávamos há algum tempo, dedicada ao envio de informações e avisos importantes, como mudanças de processos, quedas de sistema ou reuniões específicas.</p>
-                        <p>Na aba Suporte CPS, você encontrará manuais detalhados para cada um dos pilares (CONTANT, TRANSACIONAL, VENDOR ONBOARDING), explicando suas funções e como utilizá-los de maneira eficaz.</p>
-                    </div> <!--txt-Suporte-->
-                    <div class="video-bg">
-                    <video autoplay loop muted playsinline>
+                <h2 class="titulo-projetos">Conheça Nossos Projetos</h2>
+                     <div class="flex">
+                        <div class="cards">
+                    <!-- STACK 3-->
+                            <div class="stack-group">
+                                <h3 class="stack-title">Automações e Processos Inteligentes</h3>
+                                    <p class="stack-desc">Conheça todas as principais automações já criadas com <strong>eficiência</strong> e <strong>inovação</strong>.</p>
+                                        <div class="stack">
+                                            <div class="card-projeto">
+                                                <i class="fa-solid fa-gear icon-config"></i>
+                                                    <h4>Fluxos</h4>
+                                                        </div>
+                                                <div class="card-projeto">
+                                                    <h4>Scripts</h4>
+                                                        </div>
+                                                <div class="card-projeto">
+                                                <h4>Integrações</h4>
+                                                    </div>
+                                                    <!-- Botões de navegação -->
+                                                <button class="prev">&#10094;</button> <!-- seta esquerda -->
+                                                <button class="next">&#10095;</button> <!-- seta direita -->
+                                        </div>
+                                    </div>
+                <!-- STACK 2 -->
+                <div class="stack-group">
+                    <h3 class="stack-title">Lógica de Programação e Algoritmos</h3>
+                        <p class="stack-desc"> Conheça todas os principais fundamentos de programação já criadas com <strong>eficiência</strong> e <strong>inovação</strong>.</p>
+                        <div class="stack">
+                        <div class="card-projeto">
+                            <i class="fa-solid fa-laptop-code icon-config"></i>
+                            <h4>Algoritmos</h4>
+                        </div>
+                        <div class="card-projeto">
+                            <h4>Estruturas de Dados</h4>
+                        </div>
+                        <div class="card-projeto">
+                                    <h4>Integrações</h4>
+                            </div>
+                                                <!-- Botões de navegação -->
+                                                <button class="prev">&#10094;</button> <!-- seta esquerda -->
+                                                <button class="next">&#10095;</button> <!-- seta direita -->
+
+                    </div>
+                </div>
+                
+                <!-- STACK 3 -->
+                <div class="stack-group">
+                    <h3 class="stack-title">Interfaces Web (HTML,CSS e UX)</h3>
+                        <p class="stack-desc"> Conheça todas os principais interfaces e Experiencias de usuário já criadas com <strong>eficiência</strong> e <strong>inovação</strong>.</p>
+                        <div class="stack">
+
+                    <div class="card-projeto" data-projeto="interfaces">
+                        <i class="fa-solid fa-palette icon-config"></i>
+                        <h3>Interfaces Web</h3>
+                    </div>
+
+                    <div class="card-projeto">
+                        <h4>HTML</h4>
+                    </div>
+
+                    <div class="card-projeto">
+                        <h4>UX</h4>
+                    </div>
+
+                                                <!-- Botões de navegação -->
+                                                <button class="prev">&#10094;</button> <!-- seta esquerda -->
+                                                <button class="next">&#10095;</button> <!-- seta direita -->
+
+                </div>
+            </div>
+            <div class="video-bg">
+                <video autoplay loop muted playsinline>
                     <source src="Videos/Daniel Pixel.mp4" type="video/mp4">
                     Seu navegador não suporta vídeo.
-                    </video>
+                </video>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="projeto-detalhe" id="detalhe">
+    <button class="fechar">×</button>
+    <div class="conteudo"></div>
+</div>
+
+<!-- Avaliação -->
+<section class="votação-cps">
+    <div class="interface">
+        <div class="flex">
+
+            <!-- Lado esquerdo: texto -->
+            <div class="txt-votação">
+                <h2>Envie seu <span class="highlight-h2">Feedback</span></h2>
+            </div>
+
+            <!-- Lado direito: estrelas + botão alinhados à direita -->
+            <div class="lado-direito">
+                <div class="media-estrela" id="media-estrela">
+    <span class="media-valor">4.2</span>
+    <div class="estrelas-container">
+        <span class="estrela preenchida">★</span>
+        <span class="estrela preenchida">★</span>
+        <span class="estrela preenchida">★</span>
+        <span class="estrela preenchida">★</span>
+        <span class="estrela">★</span>
+    </div>
+</div>
+                <div class="btn-votar">
+                    <button id="abrir-avaliacao">Avalie Aqui</button>
                 </div>
-                </div> <!--flex-->
-            </div> <!--Interface-->
-        </section> <!--Suporte-CPS-->
+            </div>
 
-        <section class="votação-cps">
-            <div class="interface">
-                <div class="flex">
-                    <div class="txt-votação">
-                        <h2>Votação CPS<span class="highlight-h2"> ESTRELA TRIMESTRAL</span></h2>
-                        <p>Considerando a estrutura anteriormente estabelecida para reconhecimento dentro da nossa organização, apresentamos uma nova abordagem para ampliar e enriquecer esse conceito</p>
-                        <p>Com essa nova estrutura de reconhecimento, buscamos fortalecer o sentimento de apreciação e valorização dentro da CPS, garantindo que cada área e cada indivíduo se sinta reconhecido e recompensado por suas contribuições.</p>
-                        <p>O projeto Estrela Trimestral tem como objetivo reconhecer e premiar cinco colaboradores destacados em cinco pilares principais:<span class="highlight-p"> Desempenho e Resultados, Contribuição para a Cultura e Valores da Empresa, Trabalho em Equipe e Colaboração, Competências e Habilidades & Atitude e Comportamento</span></p> 
-                        <p>A votação ocorrerá ao longo de três meses. Se você perceber que algum colega de CPS se destacou em qualquer um desses pilares, compartilhe sua experiência e vote na pessoa que considera merecedora. Lembre-se de escolher com cuidado, pois uma vez feito o voto, você só poderá participar novamente no próximo período de três meses.</p>
-                        <div class="btn-votar">
-                            <a href="Votação.html">
-                                <button>Votar</button>
-                            </a>                 
-                            </div> <!--btn-votar--> 
-                    </div><!--txt-votação -->                  
-                </div> <!--flex-->
-            </div> <!--Interface-->
-        </section> <!--votação-cps-->
+        </div>
+    </div>
+</section>
 
-    
-    </Main>
+<!-- Modal (fora da section, geralmente no final do body) -->
+<div class="subaba-avaliacao" id="subaba-avaliacao">
+    <div class="conteudo-avaliacao">
+        <button class="fechar-subaba" id="fechar-avaliacao">×</button>
+        <h2>Avalie nosso serviço</h2>
+        
+        <!-- Estrelas interativas -->
+        <div class="estrelas">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
+        </div>
 
-</body>
-</html>
-    
+        <!-- Feedback -->
+        <textarea id="feedback-text" placeholder="Deixe seu comentário (opcional)"></textarea>
+        <button id="enviar-feedback">Enviar Avaliação</button>
+        
+        <!-- Média fictícia -->
+        <p class="media-ficticia">Média atual: <span id="media">4.2</span> ★</p>
+    </div>
+</div>
+
+<!--Imagem final do site-->
+
+<section class="imagem">
+            <div class="final-img"></div>
+
+</section>
+
+<!--Redes Sociais-->
+<section class="Rede-Social">
+                        <div class="ImgRede-Social"></div>
+</section>
+
+
+
+</main>
+
+<script src="js/Interface.js"></script>
 </body>
 </html>
