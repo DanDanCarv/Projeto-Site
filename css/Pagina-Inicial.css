@@ -117,52 +117,54 @@ header nav a.active::after {
     }
 }
 
-/* Estilo do Topo do Site */
-section.topo-do-site{
-    padding: 40px 4%;
-    padding-top: 130px; 
-}
+/* =============================================
+   TOPO DO SITE – Estilos consolidados e corrigidos
+   ============================================= */
 
-section.topo-do-site .flex{
-    align-items: center;
-    justify-content: center;
-    gap: 90px;
-}
-
-.topo-do-site {
+/* Container principal da seção (use sempre como <section class="topo-do-site">) */
+section.topo-do-site {
     background-image: url("../Imagens/Design sem nome (3).png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
-    align-items: center;    
-}
-
-.flex {
-    display: flex;
-    justify-content: flex-start; 
     align-items: center;
+    padding: 130px 4% 40px 4%;          /* padding-top maior + laterais simétricas */
 }
 
+/* Flex interno – alinhado à esquerda */
+section.topo-do-site .flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;        /* ← alinhado à esquerda (corrigido) */
+    gap: 90px;
+    width: 100%;
+}
+
+/* Container de largura máxima com recuo à esquerda */
 .interface {
     max-width: 1200px;
-    margin-left: 0; 
-    margin-right: auto;
-    padding-left: 80px;
+    width: 100%;
+    margin: 0 auto;                     /* centraliza o container na tela */
+    padding-left: 80px;                 /* recuo desejado à esquerda */
+    padding-right: 4%;                  /* equilíbrio à direita */
 }
 
+/* Texto principal do topo */
 .txt-topo-site {
     max-width: 520px;
     width: 100%;
     text-align: left;
 }
 
+/* Títulos e parágrafos */
 .topo-do-site .txt-topo-site h1 {
     font-family: 'Quicksand', sans-serif;
     font-size: 42px;
     line-height: 1.1;
     font-weight: 300;
+    margin: 0 0 20px 0;                 /* espaço natural abaixo */
 }
 
 .topo-do-site .txt-topo-site h1 span {
@@ -170,45 +172,44 @@ section.topo-do-site .flex{
     display: block;
 }
 
-.topo-do-site .txt-topo-site p{
+.topo-do-site .txt-topo-site p {
     max-width: 480px;
-    margin: 35px 0;
+    margin: 0 0 35px 0;                 /* margem consistente */
     line-height: 1.6;
-    
 }
 
-.Span{
+/* Span avulso – se ainda estiver usando fora do h1, senão pode remover */
+.Span {
     color: #FF8C42;
     max-width: 480px;
-    margin: 35px 0;
+    margin: 0 0 35px 0;
     line-height: 1.6;
     font-weight: 800;
-    
+    margin-top: 40px;
 }
 
+/* Botão Saiba Mais */
 .btn-Saiba-Mais {
     max-width: 480px;
-    margin: 35px 0;
-    margin-top: 20px; 
+    margin: 20px 0 0 0;                 /* margem superior ajustada */
 }
 
-.btn-Saiba-Mais button{
+.btn-Saiba-Mais button {
     padding: 20px 50px;
     font-size: 30px;
     font-weight: 600;
-    background-color:#FF8C42 ;
+    background-color: #FF8C42;
     border: 0;
     border-radius: 10px;
     cursor: pointer;
     color: white;
-    
+    transition: all 0.3s ease;
 }
 
-.btn-Saiba-Mais:hover{
+.btn-Saiba-Mais button:hover {
     color: rgb(18, 0, 34);
     transform: scale(1.05);
 }
-
 
 /* Sobre Daniel */
 
@@ -698,6 +699,7 @@ section.imagem {
 }
 
 section.Rede-Social {
+    position: relative;
     padding: 40px 4%;
     padding-top: 130px; 
 }
@@ -721,9 +723,7 @@ section.Rede-Social {
 
 /* Texto base */
 .txt-Rede-Social {
-    max-width: 520px;
-    position: relative;              /* permite mexer nos filhos em px */
-    text-align: left;
+    position: relative;
 }
 
 /* h1 – ajuste left/top em px aqui */
@@ -733,9 +733,10 @@ section.Rede-Social {
     line-height: 1.1;
     font-weight: 300;
     position: relative;
-    left: -110px;                       /* ← mude para ex. 80px (direita) ou -50px (esquerda) */
-    top: -10px;                        /* ← mude para cima/baixo */
+    left: 0;          /* ← zera o deslocamento */
+    top: -40px;           /* ← zera o deslocamento vertical */
     margin: 0;
+    text-align: left; /* ← garante alinhamento à esquerda (embora seja o default) */
 }
 
 /* Span dentro do h1 – ajuste independente */
@@ -752,10 +753,13 @@ section.Rede-Social {
     font-family: 'Quicksand', sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    font-weight: 300;
-    position: relative;
-    left: 640px;                       /* ← ajuste horizontal em px */
-    top: 0px;                        /* ← ajuste vertical em px */
+    font-weight: 500;
+    position: absolute;
+    left: 800px;                       /* ← ajuste horizontal em px */
+    top: 150px;
+    white-space: normal;
+    word-wrap: break-word; 
+    width: 400px;/* ← ajuste vertical em px */
 }
 
 /* Ícones 3D – restaurado exatamente como estava (efeito, cores, hover, tudo) */
@@ -769,7 +773,7 @@ section.Rede-Social {
     margin: 0;
     padding: 0;
     margin-left: auto; 
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 /* Cada li */
