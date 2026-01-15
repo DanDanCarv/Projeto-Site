@@ -521,6 +521,7 @@ section.Projetos .flex {
 
 .txt-votação {
     max-width: 520px;
+    margin-top: -80px;
 }
 
 .txt-votação h2 {
@@ -572,7 +573,7 @@ section.Projetos .flex {
     color: #FF8C42;
     letter-spacing: 4px;
     margin: 20px 0;
-    margin-top: -50px;
+    margin-top: -110px;
 }
 
 .media-estrela span {
@@ -683,17 +684,194 @@ section.imagem {
 }
 
 
-/* Rede Social */
-section.Rede-Social {
-    width: 100%;
+/* =============================================
+   Container principal da seção (mantido como você tinha)
+   ============================================= */
+.Rede-Social {
+    background-image: url("../Imagens/Design meio do site.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 300px;  
+    display: flex;
+    align-items: center;
 }
 
-.ImgRede-Social {
-    width: 100%;
-    height: 427px;             
-    
-    background-image: url("../Imagens/Design\ meio\ do\ site.png");
-    background-size: cover;
-    background-position: top center; /* não corta em cima */
-    background-repeat: no-repeat;
+section.Rede-Social {
+    padding: 40px 4%;
+    padding-top: 130px; 
 }
+
+/* Interface */
+.interface {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* Flex principal – referência para offsets */
+.flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;              /* permite top/left/right em px nos filhos */
+    width: 100%;
+    gap: 40px;
+}
+
+/* Texto base */
+.txt-Rede-Social {
+    max-width: 520px;
+    position: relative;              /* permite mexer nos filhos em px */
+    text-align: left;
+}
+
+/* h1 – ajuste left/top em px aqui */
+.Rede-Social .txt-Rede-Social h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 42px;
+    line-height: 1.1;
+    font-weight: 300;
+    position: relative;
+    left: -110px;                       /* ← mude para ex. 80px (direita) ou -50px (esquerda) */
+    top: -10px;                        /* ← mude para cima/baixo */
+    margin: 0;
+}
+
+/* Span dentro do h1 – ajuste independente */
+.Rede-Social .txt-Rede-Social h1 span {
+    color: #FF8C42;
+    display: block;
+    position: relative;
+    left: 0px;                       /* ← ex. -150px para esquerda */
+    top: 0px;
+}
+
+/* Parágrafo – agora mexível em px */
+.Rede-Social .txt-Rede-Social p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 300;
+    position: relative;
+    left: 640px;                       /* ← ajuste horizontal em px */
+    top: 0px;                        /* ← ajuste vertical em px */
+}
+
+/* Ícones 3D – restaurado exatamente como estava (efeito, cores, hover, tudo) */
+.social-3d {
+    display: flex;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotate(-25deg) skew(25deg);
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto; 
+    margin-right: 20px;
+}
+
+/* Cada li */
+.social-3d li {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 10px;
+}
+
+/* Sombras – exatamente como estava */
+.social-3d li:before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: #230250;
+    transform-origin: top;
+    transform: skewX(-41deg);
+    transition: all 0.5s;
+}
+
+.social-3d li:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -9px;
+    width: 9px;
+    height: 100%;
+    background: #230250;
+    transform-origin: right;
+    transform: skewY(-49deg);
+    transition: all 0.5s;
+}
+
+/* Link */
+.social-3d li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* Camadas base */
+.social-3d li span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background: #3f0591;
+    color: #8348fe;
+    font-size: 30px !important;
+    transition: all 0.4s ease;
+}
+
+/* Hover geral */
+.social-3d li:hover span {
+    z-index: 1000;
+    color: #fff;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Camadas no hover – restaurado exatamente */
+.social-3d li:hover span:nth-child(5) {
+    transform: translate(40px, -40px);
+    opacity: 1;
+    transition: all 500ms;
+}
+
+.social-3d li:hover span:nth-child(4) {
+    transform: translate(30px, -30px);
+    opacity: 0.8;
+    transition: all 500ms;
+}
+
+.social-3d li:hover span:nth-child(3) {
+    transform: translate(20px, -20px);
+    opacity: 0.6;
+    transition: all 500ms;
+}
+
+.social-3d li:hover span:nth-child(2) {
+    transform: translate(10px, -10px);
+    opacity: 0.4;
+    transition: all 500ms;
+}
+
+.social-3d li:hover span:nth-child(1) {
+    transform: translate(0px, 0px);
+    opacity: 0.2;
+    transition: all 500ms;
+}
+
+/* Cores específicas no hover – mantido exatamente */
+.social-3d li:nth-child(1):hover span { background: #e4405f; } /* Instagram */
+.social-3d li:nth-child(2):hover span { background: #0077b5; } /* LinkedIn */
+.social-3d li:nth-child(3):hover span { background: #25D366; } /* WhatsApp */
+.social-3d li:nth-child(4):hover span { background: #ffffff; color: black; } /* GitHub */
